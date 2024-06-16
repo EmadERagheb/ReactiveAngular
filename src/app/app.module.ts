@@ -35,7 +35,8 @@ import {SearchLessonsComponent} from './search-lessons/search-lessons.component'
 import { LoadingComponent } from './loading/loading.component';
 import { CoursesCardListComponent } from './courses-card-list/courses-card-list.component';
 
-@NgModule({ declarations: [	
+
+@NgModule({ declarations: [		
         AppComponent,
         HomeComponent,
         AboutComponent,
@@ -47,7 +48,8 @@ import { CoursesCardListComponent } from './courses-card-list/courses-card-list.
         MessagesComponent,
         SearchLessonsComponent,
         LoadingComponent,
-      CoursesCardListComponent
+      CoursesCardListComponent,
+      LoadingComponent
    ],
     bootstrap: [AppComponent], imports: [BrowserModule,
         BrowserAnimationsModule,
