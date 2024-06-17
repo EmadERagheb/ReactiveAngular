@@ -9,9 +9,9 @@ import { Course, sortCoursesBySeqNo } from '../model/course';
 })
 export class CoursesService {
   private courseEndPoint = "/api/courses";
-  private subject = new BehaviorSubject<Course[]>([]);
 
-  courses$ : Observable<Course[]> = this.subject.asObservable();
+
+ 
 
   constructor(private http: HttpClient) {}
 
@@ -26,13 +26,5 @@ export class CoursesService {
       .put(this.courseEndPoint + "/" + courseId, changes)
       .pipe(shareReplay());
   }
-  filterByCategory(category: string): Observable<Course[]> {
-    return this.courses$
-        .pipe(
-            map(courses =>
-                courses.filter(course => course.category == category)
-                    .sort(sortCoursesBySeqNo)
-            )
-        )
-}
+  
 }
