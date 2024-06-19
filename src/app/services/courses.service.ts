@@ -33,4 +33,18 @@ export class CoursesService {
       .get<Lesson[]>(this.lessonsEndPoint, { params })
       .pipe(map((result) => result["payload"], shareReplay()));
   }
+  loadCourseById(courseId: string): Observable<Course> {
+    return this.http
+      .get<Course>(this.courseEndPoint + `/${courseId}`)
+      .pipe(shareReplay());
+  }
+  loadAllCoursesLesson(courseId: string): Observable<Lesson[]> {
+    let params = new HttpParams();
+    params = params.append("courseId", courseId);
+    params = params.append("pageSize", 100);
+    return this.http.get<Lesson[]>(this.lessonsEndPoint, { params }).pipe(
+      map((result) => result["payload"]),
+      shareReplay()
+    );
+  }
 }
